@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
 class Post extends Equatable {
@@ -5,11 +6,14 @@ class Post extends Equatable {
   final int id;
   final String title;
   final String body;
-
-  Post(this.userId, this.id, this.title, this.body);
+  const Post({
+    required this.userId,
+    required this.id,
+    required this.title,
+    required this.body,
+  });
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         userId,
         id,

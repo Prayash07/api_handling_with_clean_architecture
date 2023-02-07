@@ -4,7 +4,7 @@ import 'package:api_handling_with_clean_architecture/features/posts/domain/repos
 import 'package:dartz/dartz.dart';
 
 class FetchPosts {
-  final FetchPostRepository fetchPostRepository;
+  final PostRepository fetchPostRepository;
 
   FetchPosts(this.fetchPostRepository);
 
