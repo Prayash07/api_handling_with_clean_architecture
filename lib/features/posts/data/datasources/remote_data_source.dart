@@ -9,10 +9,12 @@ abstract class RemoteDataSource {
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
+  final Dio dio;
+
+  RemoteDataSourceImpl({required this.dio});
+
   @override
   Future<PostModel> getPost() async {
-    Dio dio = Dio();
-
     final Response response =
         await dio.get("https://jsonplaceholder.typicode.com/posts");
 
