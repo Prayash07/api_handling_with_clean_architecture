@@ -5,7 +5,7 @@ import 'package:api_handling_with_clean_architecture/features/posts/data/models/
 import 'package:dio/dio.dart';
 
 abstract class RemoteDataSource {
-  Future<PostModel> getPost();
+  Future<List<PostModel>> getPost();
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -14,12 +14,16 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   RemoteDataSourceImpl({required this.dio});
 
   @override
-  Future<PostModel> getPost() async {
+  Future<List<PostModel>> getPost() async {
     final Response response =
         await dio.get("https://jsonplaceholder.typicode.com/posts");
 
     if (response.statusCode == 200) {
-      return PostModel.fromJson(json.decode(response.data));
+      List<dynamic> data = jsonDecode(response.data);
+      List<PostModel> postModel =
+          data.map((e) => PostModel.fromJson(e)).toList();
+
+      return postModel;
     } else {
       throw ServerException();
     }

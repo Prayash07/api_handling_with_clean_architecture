@@ -8,7 +8,7 @@ class FetchPosts {
 
   FetchPosts(this.fetchPostRepository);
 
-  Future<Either<Failure, Post>> execute() {
+  Future<Either<Failure, List<Post>>> execute() {
     return fetchPostRepository.fetchPostRepository();
   }
 }

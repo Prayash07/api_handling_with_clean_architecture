@@ -16,10 +16,12 @@ class PostRepositoryImpl extends PostRepository {
   });
 
   @override
-  Future<Either<Failure, Post>> fetchPostRepository() async {
+  Future<Either<Failure, List<Post>>> fetchPostRepository() async {
     try {
       final result = await remoteDataSource.getPost();
-      return Right(result.toEntity());
+      List<Post> postList = result.map((e) => e.toEntity()).toList();
+
+      return Right(postList);
     } on ServerException {
       return const Left(ServerFailure(""));
     } on SocketException {

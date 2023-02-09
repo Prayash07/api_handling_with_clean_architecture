@@ -3,5 +3,5 @@ import 'package:api_handling_with_clean_architecture/features/posts/domain/entit
 import 'package:dartz/dartz.dart';
 
 abstract class PostRepository {
-  Future<Either<Failure, Post>> fetchPostRepository();
+  Future<Either<Failure, List<Post>>> fetchPostRepository();
 }
