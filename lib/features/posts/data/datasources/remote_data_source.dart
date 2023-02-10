@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:api_handling_with_clean_architecture/features/posts/data/exception.dart';
 import 'package:api_handling_with_clean_architecture/features/posts/data/models/post_model.dart';
 import 'package:dio/dio.dart';
@@ -19,7 +17,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
         await dio.get("https://jsonplaceholder.typicode.com/posts");
 
     if (response.statusCode == 200) {
-      List<dynamic> data = jsonDecode(response.data);
+      List<dynamic> data = response.data;
       List<PostModel> postModel =
           data.map((e) => PostModel.fromJson(e)).toList();
 

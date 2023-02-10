@@ -17,7 +17,6 @@ class PostHasDataState extends PostsState {
   });
 
   @override
-  // TODO: implement props
   List<Object> get props => [posts];
 }
 
@@ -28,6 +27,5 @@ class PostErrorState extends PostsState {
   });
 
   @override
-  // TODO: implement props
   List<Object> get props => [message];
 }

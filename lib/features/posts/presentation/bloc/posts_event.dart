@@ -7,4 +7,4 @@ abstract class PostsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class OnPostDataLoadedEvent extends PostsEvent {}
+class FetchPostDataEvent extends PostsEvent {}

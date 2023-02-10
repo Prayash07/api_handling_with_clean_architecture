@@ -17,9 +17,9 @@ class PostModel extends Equatable {
   factory PostModel.fromJson(Map<String, dynamic> data) {
     return PostModel(
       userId: data['userId'],
-      id: data['userId'],
-      title: data['userId'],
-      body: data['userId'],
+      id: data['id'],
+      title: data['title'],
+      body: data['body'],
     );
   }
 
